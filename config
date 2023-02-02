@@ -1,0 +1,4 @@
+COMMIT_TAG=ID
+ENVIRONMENT=staging
+CHANGELOG_PATH=changelog.txt
+ISSUE_BASE_URL=https://teamwork.q.agency/app/tasks/

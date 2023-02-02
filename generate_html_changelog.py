@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 
-import sys, re, jinja2
+import sys
+import re
+import jinja2
 
-if len(sys.argv) < 2:
-    print('You must provide source file name')
+if len(sys.argv) < 4:
+    print('You must provide SOURCE_FILE_NAME, COMMIT_TAG and ISSUE_BASE_URL')
     exit()
 
 SOURCE_FILE_NAME = sys.argv[1]
-COMMIT_TAG = "ID"
-ISSUE_BASE_URL = "https://teamwork.q.agency/app/tasks/"
-DESTINATION_FILE_NAME = "release_notes.html"
+COMMIT_TAG = sys.argv[2]
+ISSUE_BASE_URL = sys.argv[3]
+DESTINATION_FILE_NAME = "release_notes/index.html"
 
 build_numbers = []
 dates = []
@@ -29,7 +31,8 @@ with open(SOURCE_FILE_NAME, 'r', encoding='UTF-8') as file:
             elif counter == 1:
                 dates.append(line)
             elif len(line) > 0:
-                match = re.match('^(' + COMMIT_TAG + '[-_\s]*)([0-9].*?)[\s+:](.*)', line, re.IGNORECASE)
+                match = re.match(
+                    '^(' + COMMIT_TAG + '[-_\s]*)([0-9].*?)[\s+:](.*)', line, re.IGNORECASE)
                 issue_name = None
                 issue_url = None
                 release_text = line
@@ -52,3 +55,4 @@ context = {
 }
 with open(DESTINATION_FILE_NAME, mode='w', encoding='UTF-8') as file:
     file.write(template.render(context))
+
