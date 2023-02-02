@@ -17,7 +17,8 @@ release_notes = []
 release_note_item = []
 counter = 0
 with open(SOURCE_FILE_NAME, 'r', encoding='UTF-8') as file:
-    while line := file.readline().rstrip():
+    while line := file.readline():
+        line = line.rstrip()
         if line.startswith('####'):
             release_notes.append(release_note_item.copy())
             release_note_item.clear()
@@ -27,7 +28,7 @@ with open(SOURCE_FILE_NAME, 'r', encoding='UTF-8') as file:
                 build_numbers.append(line)
             elif counter == 1:
                 dates.append(line)
-            else:
+            elif len(line) > 0:
                 match = re.match('^(' + COMMIT_TAG + '[-_\s]*)([0-9].*?)[\s+:](.*)', line, re.IGNORECASE)
                 issue_name = None
                 issue_url = None
