@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-ENVIRONMENT_TAG="staging"
-COMMIT_TAG="ID"
-NEWEST_INDEX="$1"
-SECOND_NEWEST_INDEX="$2"
+ENVIRONMENT_TAG="$1"
+COMMIT_TAG="$2"
+NEWEST_INDEX="$4"
+SECOND_NEWEST_INDEX="$5"
 DESTINATION_FILE_NAME="$3"
 
 newest_tag=$(git tag -l | sort -V | grep $ENVIRONMENT_TAG | tail -n "$NEWEST_INDEX" | head -n 1)
