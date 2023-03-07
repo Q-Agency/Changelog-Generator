@@ -4,14 +4,15 @@ import sys
 import re
 import jinja2
 
-if len(sys.argv) < 4:
-    print('You must provide SOURCE_FILE_NAME, COMMIT_TAG and ISSUE_BASE_URL')
+if len(sys.argv) < 6:
+    print('You must provide SOURCE_FILE_NAME, COMMIT_TAG, ISSUE_BASE_URL, DESTINATION_TEMPLATE and DESTINATION_FILE_NAME')
     exit()
 
 SOURCE_FILE_NAME = sys.argv[1]
 COMMIT_TAG = sys.argv[2]
 ISSUE_BASE_URL = sys.argv[3]
-DESTINATION_FILE_NAME = "release_notes/index.html"
+DESTINATION_TEMPLATE = sys.argv[4]
+DESTINATION_FILE_NAME = sys.argv[5]
 
 build_numbers = []
 dates = []
@@ -47,7 +48,7 @@ with open(SOURCE_FILE_NAME, 'r', encoding='UTF-8') as file:
             counter += 1
 
 environment = jinja2.Environment(loader=jinja2.FileSystemLoader('templates/'))
-template = environment.get_template('release_notes_template.txt')
+template = environment.get_template(DESTINATION_TEMPLATE)
 context = {
     'build_numbers': build_numbers,
     'dates': dates,
