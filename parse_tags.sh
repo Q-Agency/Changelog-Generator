@@ -2,10 +2,6 @@
 
 source config
 
-if [ -f "$CHANGELOG_PATH" ]; then
-  rm "$CHANGELOG_PATH"
-fi
-
 counter=1
 while true; do
   previous=$counter

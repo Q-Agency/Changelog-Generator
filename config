@@ -3,4 +3,4 @@ ENVIRONMENT=staging
 CHANGELOG_PATH=changelog.txt
 ISSUE_BASE_URL=https://teamwork.q.agency/app/tasks/
 DESTINATION_TEMPLATE=release_notes_md_template.txt
-DESTINATION_FILE_NAME=release_notes/changelog.md
+DESTINATION_FILE_NAME="../CHANGELOG-$ENVIRONMENT.md"
