@@ -7,8 +7,7 @@
 #
 # To enable this hook, rename this file to "pre-commit".
 
-cd Changelog-Generator
+cd changelog-generator
 source config
 bash generate_changelog.sh 
 git add "$DESTINATION_FILE_NAME"
-
