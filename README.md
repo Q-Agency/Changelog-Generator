@@ -4,14 +4,14 @@
 Changelog generator depends on [Jinja2](https://jinja.palletsprojects.com) to 
 generate destination changelog file so you need to install it before running the script.
 ```
-pip install Jinja2
+pip3 install Jinja2
 ```
 
 ## Project setup
-Configure config file with desired setup, copy entire **changelog-generator** folder 
+Configure config file with desired setup, copy entire **changelog_generator** folder 
 to your project and then run
 ```
-bash changelog-generator/generate_changelog.sh
+bash changelog_generator/generate_changelog.sh
 ```
 config file has following variables that can be configured:
 * COMMIT_TAG - default "ID", you can change if you project has specific tag name 
