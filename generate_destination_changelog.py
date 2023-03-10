@@ -2,6 +2,7 @@
 
 import sys
 import re
+import os
 import jinja2
 
 if len(sys.argv) < 6:
@@ -19,6 +20,10 @@ dates = []
 release_notes = []
 release_note_item = []
 counter = 0
+
+if not os.path.exists(SOURCE_FILE_NAME):
+    exit()
+
 with open(SOURCE_FILE_NAME, 'r', encoding='UTF-8') as file:
     while line := file.readline():
         line = line.rstrip()
