@@ -27,8 +27,8 @@ to use, currently along with md also html template is available
 * DESTINATION_FILE_NAME - default "../CHANGELOG-$ENVIRONMENT.md", path and name 
 of the file that will be generated based on your projects git commit messages
 
-## Pre-commit hook
-In your project, copy **pre-commit** file to .git/hooks folder and it will execute 
+## Post-commit hook
+In your project, copy **post-commit** file to .git/hooks folder and it will execute 
 **generate_changelog.sh** script each time you commit something into your git 
 repository and add **DESTINATION_FILE_NAME** file to your commit if anything has changed
 in your desired tag changelog

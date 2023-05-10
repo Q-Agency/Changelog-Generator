@@ -2,7 +2,7 @@
 
 source config
 
-counter=1
+counter=0
 while true; do
   previous=$counter
   ((counter++))
