@@ -5,7 +5,7 @@
 ## Tags list
 {% for build_number in build_numbers %}
     {% if loop.index0 < (release_notes | length) and release_notes[loop.index0] | length > 0  %}
-* [{{ build_number }}](#{{ build_number | replace(".", "") | replace(" ", "-") }})
+* [{{ build_number }}](#{{ build_number | replace(".", "") | replace(" ", "-") | replace("+", "") }})
     {% endif %}
 {% endfor %}
 

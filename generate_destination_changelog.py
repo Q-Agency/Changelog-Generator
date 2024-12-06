@@ -38,7 +38,7 @@ with open(SOURCE_FILE_NAME, 'r', encoding='UTF-8') as file:
                 dates.append(line)
             elif len(line) > 0:
                 match = re.match(
-                    '^(' + COMMIT_TAG + '[-_\s]*)([0-9].*?)[\s+:](.*)', line, re.IGNORECASE)
+                    '^(' + COMMIT_TAG + '[-_\\s]*)([0-9].*?)[\\s+:](.*)', line, re.IGNORECASE)
                 issue_name = None
                 issue_url = None
                 release_text = line
